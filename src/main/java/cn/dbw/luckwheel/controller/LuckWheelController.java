@@ -89,19 +89,20 @@ public class LuckWheelController extends BaseController<LuckProduct> {
     //可以计算可以抽奖
     @RequestMapping("test")
     public boolean canDog(String uid){
-        System.out.println(uid);
-       // List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from codepay_order where pay_id=? and pay_tag=0", new BeanPropertyRowMapper<>(Map.class), uid);
-        //select * from codepay_order where pay_id='13826467262' and pay_tag>=0 and money>=200 and pay_tag <FLOOR(money/200) and up_time >='2019-1-15 0:0:0'
-        List<Map<String, Object>> maps=jdbcTemplate.queryForList("select * from codepay_order where pay_id='"+uid+"' and pay_tag>=0 and money>=200 and pay_tag <FLOOR(money/200) and up_time >='2019-1-15 0:0:0'");
-        if(maps!=null&&maps.size()>0){
-            Map<String, Object> stringObjectMap = maps.get(0);
-            String pay_no = (String) stringObjectMap.get("pay_no");
-            //更新一次
-            jdbcTemplate.update("update codepay_order set pay_tag=pay_tag+1 where pay_id='"+uid+"' and pay_no='"+pay_no+"'");
-            System.out.println(uid+"  "+true);
-            return true ;
-        }
-        return false;
+//        System.out.println(uid);
+//       // List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from codepay_order where pay_id=? and pay_tag=0", new BeanPropertyRowMapper<>(Map.class), uid);
+//        //select * from codepay_order where pay_id='13826467262' and pay_tag>=0 and money>=200 and pay_tag <FLOOR(money/200) and up_time >='2019-1-15 0:0:0'
+//        List<Map<String, Object>> maps=jdbcTemplate.queryForList("select * from codepay_order where pay_id='"+uid+"' and pay_tag>=0 and money>=200 and pay_tag <FLOOR(money/200) and up_time >='2019-1-15 0:0:0'");
+//        if(maps!=null&&maps.size()>0){
+//            Map<String, Object> stringObjectMap = maps.get(0);
+//            String pay_no = (String) stringObjectMap.get("pay_no");
+//            //更新一次
+//            jdbcTemplate.update("update codepay_order set pay_tag=pay_tag+1 where pay_id='"+uid+"' and pay_no='"+pay_no+"'");
+//            System.out.println(uid+"  "+true);
+//            return true ;
+//        }
+//        return false;
+    	return true;
     }
 
 
